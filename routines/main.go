@@ -20,6 +20,10 @@ func main() {
 		go checkLink(link, c)
 	}
 
+	for l := range c {
+		go checkLink(l, c)
+	}
+
 	fmt.Println(<-c)
 }
 
