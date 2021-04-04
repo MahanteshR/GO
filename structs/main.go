@@ -2,11 +2,6 @@ package main
 
 import "fmt"
 
-type person struct {
-	firstname string
-	lastname  string
-}
-
 func main() {
 	// method 1
 	name := person{firstname: "Mahan", lastname: "R"}
