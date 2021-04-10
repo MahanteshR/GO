@@ -15,6 +15,8 @@ type Wallet struct {
 	balance Bitcoin
 }
 
+var errInsufficientRefunds = errors.New("cannot withdraw, insufficient funds")
+
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
@@ -31,7 +33,7 @@ func (w *Wallet) Balance() Bitcoin {
 func (w *Wallet) Withdraw(amt Bitcoin) error {
 
 	if amt > w.balance {
-		return errors.New("Chill people ")
+		return errInsufficientRefunds
 	}
 
 	w.balance -= amt
