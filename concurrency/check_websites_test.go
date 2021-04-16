@@ -1,4 +1,4 @@
-package concurrency
+package main
 
 import (
 	"reflect"
@@ -6,7 +6,7 @@ import (
 )
 
 func mockWebsiteChecker(url string) bool {
-	if url == "waat://furhurterwe.geds" {
+	if url == "what://furthers.gets" {
 		return false
 	}
 	return true
@@ -14,15 +14,15 @@ func mockWebsiteChecker(url string) bool {
 
 func TestCheckWebsites(t *testing.T) {
 	websites := []string{
-		"http://google.com",
-		"http://blog.gypsydave5.com",
-		"waat://furhurterwe.geds",
+		"https://google.com",
+		"https://blog.gypsydave5.com",
+		"what://furthers.gets",
 	}
 
 	want := map[string]bool{
-		"http://google.com":          true,
-		"http://blog.gypsydave5.com": true,
-		"waat://furhurterwe.geds":    false,
+		"https://google.com":          true,
+		"https://blog.gypsydave5.com": true,
+		"what://furthers.gets":        false,
 	}
 
 	got := CheckWebsites(mockWebsiteChecker, websites)
